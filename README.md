@@ -39,3 +39,29 @@ Commands can be sent to the container such as
 ```bash
 docker run --rm -v "$PWD":/app lseg-technical-challenge-cli
 ```
+
+## Test Cases
+
+### CLI
+
+#### Requirements:
+
+```bash
+pip install -r requirements.txt
+```
+```bash
+pytest tests/
+```
+
+### Docker
+
+#### Build test image
+
+```bash
+docker buildx build -t lseg-technical-challenge-tests --target tests .
+```
+
+#### Run tests
+```bash
+docker run --rm lseg-technical-challenge-tests
+```

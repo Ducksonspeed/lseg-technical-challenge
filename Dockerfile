@@ -4,9 +4,9 @@ WORKDIR /app
 
 COPY . .
 
-FROM base AS test
+FROM base AS tests
 
-RUN pip install --no-cache-dir pytest
+RUN pip install --no-cache-dir -r requirements.txt
 
 CMD ["pytest", "tests/"]
 
