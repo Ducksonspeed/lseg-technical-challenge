@@ -66,7 +66,7 @@ def analyze_jobs(jobs):
         end = data.get('end')
         desc = data.get('desc', f"PID {pid}")
 
-        # Capture jobs missing start or end timestamps - handle as errors
+        # Capture jobs missing start or end timestamps - handle as warnings
         if not start or not end:
             incomplete.append((logging.WARNING, f"Job '{desc}' (PID {pid}) is incomplete (missing start or end time)."))
             continue

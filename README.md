@@ -65,3 +65,11 @@ docker buildx build -t lseg-technical-challenge-tests --target tests .
 ```bash
 docker run --rm lseg-technical-challenge-tests
 ```
+
+## Improvements
+
+There are quite a few improvements I would make if I had more time. Namely, support multiple output modes, currently I am writing the output to stderr, it would be a good idea to write directly into a file dependent on the requirements. stder is in use due to my use of the python logging module for handling outputs.
+
+Test cases and overall support of malformed inputs, currently we only had cases where the inputs were missing an endtime. This could be explained by inflight jobs still running at the time of the logs.log creation. However, I don't differentiate between `missing start or end time`, ideally this should be handled separately to ensure we are catching and reporting on missing start or end times.
+
+As for parsing data, I would like to expand on validating data is not malformed such as incorrect times, invalid status, or invalid PIDs. 
